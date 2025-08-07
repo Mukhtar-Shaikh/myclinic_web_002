@@ -25,6 +25,8 @@ def checkin():
         employee_id = request.form.get("employee_id")
         purpose = request.form.get("purpose")
         time_in = request.form.get("time_in")
+    
+    return render_template("bookapp.html")
 
 if __name__ == ('__main__'):
     app.run(host= '0.0.0.0' ,debug=True)
