@@ -1,0 +1,46 @@
+<!-- Header + Navbar -->
+<div class="b-example-divider"></div>
+<div class="container-fluid bg-light shadow-sm">
+
+    <header class="navbar navbar-expand-lg navbar-light bg-light py-3 border-bottom">
+        <!-- Logo + Title -->
+        <a href="/" class="navbar-brand d-flex align-items-center">
+            <img src="/static/images/logo.png" alt="Clinic Logo" height="40" class="me-2">
+            <span class="fw-bold text-primary">Clinic Visitor Management</span>
+        </a>
+
+        <!-- Hamburger Button (Mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a href="/dashboard" class="nav-link active">Dashboard</a></li>
+                <li class="nav-item"><a href= " {{ url_for('checkin') }} " class="nav-link">Check-In</a></li>
+                <li class="nav-item"><a href="/checkout" class="nav-link">Check-Out</a></li>
+                <li class="nav-item"><a href="/visitors" class="nav-link">Visitor History</a></li>
+                <li class="nav-item"><a href="/employees" class="nav-link">Employees</a></li>
+                <li class="nav-item"><a href="/analytics" class="nav-link">Analytics</a></li>
+            </ul>
+
+            <!-- Profile / Logout -->
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/static/images/user-icon.png" alt="Profile" height="30" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+</div>
