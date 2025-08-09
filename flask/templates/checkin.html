@@ -1,84 +1,30 @@
-{% extends "index.html"  %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check-in</title>
+</head>
+<body>
+    <h2>Visitor Check-in</h2>
+    <form method="POST" action="/checkin">
+        <label>Full Name:</label>
+        <input type="text" name="full_name" required><br><br>
 
-<div class="container py-4">
-    <div class="card shadow-lg border-0">
-        <div class="card-header bg-primary text-white d-flex align-items-center">
-            <i class="bi bi-person-plus-fill me-2"></i>
-            <h5 class="mb-0">Visitor Check-In</h5>
-        </div>
-        <div class="card-body">
+        <label>Phone:</label>
+        <input type="text" name="phone" required><br><br>
 
-            <!-- Flash Messages -->
-            {% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-                {% for category, message in messages %}
-                  <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                  </div>
-                {% endfor %}
-              {% endif %}
-            {% endwith %}
+        <label>Email:</label>
+        <input type="email" name="email" required><br><br>
 
-            <form method="POST" action="{{ url_for('checkin') }}">
-                <div class="row g-3">
-                    <!-- Visitor Name -->
-                    <div class="col-md-6">
-                        <label for="full_name" class="form-label fw-bold">Full Name *</label>
-                        <input type="text" class="form-control" id="full_name" name="full_name"
-                               placeholder="John Doe" required>
-                    </div>
+        <label>Employee ID:</label>
+        <input type="text" name="employee_id" required><br><br>
 
-                    <!-- Phone -->
-                    <div class="col-md-6">
-                        <label for="phone" class="form-label fw-bold">Phone *</label>
-                        <input type="tel" class="form-control" id="phone" name="phone"
-                               placeholder="9876543210" pattern="[0-9]{10,15}" required>
-                        <small class="text-muted">Numbers only, no spaces or dashes.</small>
-                    </div>
+        <label>Purpose:</label>
+        <input type="text" name="purpose" required><br><br>
 
-                    <!-- Email -->
-                    <div class="col-md-6">
-                        <label for="email" class="form-label fw-bold">Email (Optional)</label>
-                        <input type="email" class="form-control" id="email" name="email"
-                               placeholder="example@domain.com">
-                    </div>
+        <label>Time In:</label>
+        <input type="time" name="time_in" required><br><br>
 
-                    <!-- Person to Meet -->
-                    <div class="col-md-6">
-                        <label for="employee_id" class="form-label fw-bold">Person to Meet *</label>
-                        <select class="form-select" id="employee_id" name="employee_id" required>
-                            <option value="">-- Select --</option>
-                            {% for emp in employees %}
-                                <option value="{{ emp.employee_id }}">{{ emp.full_name }} ({{ emp.role }})</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
-                    <!-- Purpose -->
-                    <div class="col-12">
-                        <label for="purpose" class="form-label fw-bold">Purpose of Visit *</label>
-                        <textarea class="form-control" id="purpose" name="purpose" rows="2"
-                                  placeholder="Consultation, Delivery, etc." required></textarea>
-                    </div>
-                </div>
-
-                <!-- Auto Time In -->
-                <input type="hidden" name="time_in" value="{{ current_time }}">
-
-                <!-- Buttons -->
-                <div class="mt-4 d-flex justify-content-end">
-                    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary me-2">
-                        <i class="bi bi-arrow-left-circle"></i> Cancel
-                    </a>
-                    <button type="submit" class="btn btn-success px-4">
-                        <i class="bi bi-check-circle-fill"></i> Check In
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-{% endblock %}
+        <button type="submit">Check In</button>
+    </form>
+</body>
+</html>
