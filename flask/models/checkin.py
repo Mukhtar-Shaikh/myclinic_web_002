@@ -24,7 +24,7 @@ def checkin():
                         ID INT AUTO_INCREMENT PRIMARY KEY,
                         full_name VARCHAR(200) NOT NULL,
                         phone INT NOT NULL,
-                        employee_id INT ,
+                        employee_id INT  UNIQUE,
                         email VARCHAR(100),
                         purpose VARCHAR(300),
                         time_in TIME NOT NULL
