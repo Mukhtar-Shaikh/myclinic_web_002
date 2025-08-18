@@ -4,12 +4,21 @@
     <title>Check-in Profile</title>
 </head>
 <body>
+
+     {% include 'header.html' %}
+     <div class="mt-3">
+        
     <h2>Visitor Profile</h2>
     <p>Full Name: {{ full_name }}</p>
     <p>Phone: {{ phone }}</p>
     <p>Email: {{ email }}</p>
-    <p>Employee ID: {{ employee_id }}</p>
+    <p>Visitor ID: {{ visitor_id }}</p>
     <p>Purpose: {{ purpose }}</p>
     <p>Time In: {{ time_in }}</p>
+    <p>Time Out: {{ time_out }}</p>
+     </div>
+
+
+
 </body>
 </html>
