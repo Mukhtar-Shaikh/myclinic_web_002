@@ -14,6 +14,8 @@ def checkin():
         purpose = request.form.get("purpose")
         doctor = request.form.get("doctor")
 
+        
+
         try:
             with engine.begin() as conn:
                 # 1. check if visitor exists

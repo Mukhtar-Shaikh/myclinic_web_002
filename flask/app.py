@@ -15,6 +15,10 @@ clinic_name= "ms"
 
 def hello():
     return render_template ("index.html")
+@app.route("/bookAppointment")
+
+def bookapp():
+    return render_template ("bookapp.html")
     
 app.register_blueprint(checkin_bp)
 app.register_blueprint(checkout_bp) 
