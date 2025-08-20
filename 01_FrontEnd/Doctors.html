@@ -2,151 +2,130 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="Author" content="Contact us">
-    <title>Meet our Doctors</title>
-    <link rel="icon" href="html12.png">
-    <link rel="stylesheet" href="try5.css">
+  <meta charset="UTF-8">
+  <title>Our Team - Doctors & Nurses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f8fafc;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
+    header {
+      background-color: #1f5a89;
+      color: white;
+      padding: 15px;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
 
-        h1 {
-            padding: 25px;
-            color: #004d40;
-        }
+    nav {
+      background: #ffffff;
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
 
-        .doctor-card {
-            background-color: white;
-            width: 300px;
-            margin: 2px auto;
-            /* Center horizontally and spacing vertically */
-            border-radius: 10px;
-            box-shadow: 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            transition: transform 0.3s;
-            display: block;
-        }
+    nav a {
+      text-decoration: none;
+      margin: 0 12px;
+      color: #1f5a89;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
 
-        .doctor-card:hover {
-            transform: scale(1.03);
-        }
+    nav a:hover,
+    nav a.active {
+      color: #0d3c61;
+    }
 
-        .doctor-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    h2 {
+      margin: 30px 0 10px;
+      color: #1f5a89;
+      font-size: 1.6rem;
+    }
 
-        .doctor-info {
-            padding: 15px;
-        }
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
 
-        .doctor-name {
-            font-size: 20px;
-            font-weight: bold;
-            color: #00796b;
-        }
+    .card {
+      background-color: white;
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
 
-        .specialty {
-            font-size: 16px;
-            color: #333;
-            margin: 5px 0;
-        }
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-        .bio {
-            font-size: 14px;
-            color: #555;
-        }
-    </style>
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
 
+    .info {
+      padding: 15px;
+    }
 
+    .name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #00796b;
+    }
 
+    .role {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 4px 0;
+    }
+
+    .bio {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    footer {
+      background-color: #f1f5f9;
+      padding: 15px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 
 <body>
+   {% include 'header.html' %}
 
-    <header>
-        <div style="display: flex; align-items: center;">
-            <img src="html13.png" alt="Logo" style="height: 40px;">
-            <h1. style="position: absolute;left: 50%; transform: translateX(-50%); margin: 0; font-size: x-large;">
-                All India Institute of Medical Science
-            </h1.>
-        </div>
-    </header>
-
-    <nav>
-        <a href="try5.html">🏠Home</a>
-        <a href="Book Appointment.html">🎯Book Appointment</a>
-        <a class="active" href="#">🧑‍⚕️Doctors</a>
-        <a href="#">⏳Services</a>
-        <a href="contact.html">👮Contact</a>
-    </nav>
-
-    <div class="container 1">
-
-        <h1 style="background-color: beige;">Meet Our Doctors</h1>
-        <br>
-
-        <div class="doctors-container">
-
-            <div class="doctor-card">
-                <img src="dr khan.jpg" alt="Dr. M M Khan">
-                <div class="doctor-info">
-                    <div class="doctor-name">Dr. M M Khan</div>
-                    <div class="specialty">Cardiologist</div>
-                    <div class="bio">Dr. Khan specializes in treating heart conditions and has over 15 years of
-                        experience
-                        in
-                        cardiology and interventional procedures.
-                    </div>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="doctor-card">
-                <img src="dr mukhtar.jpg" alt="Dr. Mukhtar Shaikh">
-                <div class="doctor-info">
-                    <div class="doctor-name">Dr. Mukhtar Shaikh</div>
-                    <div class="specialty">Neurologist</div>
-                    <div class="bio">Dr. Shaikh is a highly experienced neurologist focusing on brain and nervous system
-                        disorders, including epilepsy and stroke treatment.
-                    </div>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="doctor-card">
-                <img src="dr faizan.jpg" alt="Dr. Faizan Sayyed">
-                <div class="doctor-info">
-                    <div class="doctor-name">Dr. Faizan Sayyed</div>
-                    <div class="specialty">Plastic Surgeon</div>
-                    <div class="bio">Dr. Sayyed is an expert in cosmetic and reconstructive surgeries, offering
-                        personalized
-                        care for both medical and aesthetic procedures.
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <br>
-
-        <footer>
-            Contact: info@aiims.example | Phone: +91 12345 67890 <br>
-            © 2024 All India Institute of Medical Science
-        </footer>
+  <!-- Doctors Section -->
+  <h2>👨‍⚕️ Meet Our Doctors</h2>
+  <div class="team-container">
+    <div class="card">
+      <img src="/static/images/dr_khan.jpg" alt="Dr. M M Khan">
+      <div class="info">
+        <div class="name">Dr. M M Khan</div>
+        <div class="role">Cardiologist</div>
+        <div class="bio">15+ years of experience in cardiology and heart procedures.</div>
+      </div>
     </div>
 
+    <div class="card">
+      <img src="/static/images/dr_mukhtar.jpg" alt="Dr. Mukhtar Shaikh">
+      <div class="info">
+        <div class="name">Dr. Mukhtar Shaikh</div>
+        <div class="role">Neurologist</div>
+        <div class="bio">Expert in treating brain and nervous system disorders.</div>
+      </div>
+    </div>
 
-</body>
-
-</html>
+    <d

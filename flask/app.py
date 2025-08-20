@@ -20,6 +20,10 @@ def hello():
 
 def bookapp():
     return render_template ("bookapp.html")
+@app.route("/employees")
+
+def employee():
+    return render_template ("Doctors.html")
     
 app.register_blueprint(checkin_bp)
 app.register_blueprint(checkout_bp) 
