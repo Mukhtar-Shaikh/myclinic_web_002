@@ -8,25 +8,63 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
    #dashboardCarousel{
-    height: 200px;width: 800px;
-  margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;
-  object-fit: cover;
-  
+     max-height: 400px;
+      margin: 20px;
+   ;width: 1100px;
+    margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;
 
   }
-#dashboardCarousel img {
-  height: 300px;          /* or 100vh for full screen */
-  object-fit: cover;      /* keeps proportions */
-}
+
 
   #checked_in{ height: 300px; width: 46%; margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;
   
 
   }
-  #visit_history{
+  #recent_appointments{
     height: 300px; width: 46%;margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;
 
   }
+  <style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f8fafc;   /* light clinic background */
+    color: #333;
+  }
+
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.08);
+    margin-bottom: 20px;
+  }
+
+  .card-header {
+    background-color: #1f5a89;  /* clinic blue */
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  table th {
+    background-color: #f1f5f9;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    border-radius: 20px;
+    padding: 0.35em 0.6em;
+  }
+
+  #dashboardCarousel {
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  }
+</style>
+
  
 </style>
     
@@ -34,48 +72,16 @@
 
 </head>
 
-<body>
+<body >
     {% include 'header.html' %}
-<div>
-  
-<!-- Slide show -->
-    <div id="dashboardCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-
-    <!-- First Slide -->
-    <div class="carousel-item active">
-      <img src="{{ url_for('static', filename='dash1.avif') }}" class="d-block w-100" alt="Dashboard 1">
-    </div>
-
-    <!-- Second Slide -->
-    <div class="carousel-item">
-      <img src="{{ url_for('static', filename='dash2.avif') }}" class="d-block w-100" alt="Dashboard 2">
-    </div>
-
-    <!-- Third Slide -->
-    <div class="carousel-item">
-      <img src="{{ url_for('static', filename='dash3.avif') }}" class="d-block w-100" alt="Dashboard 3">
-    </div>
-
-  </div>
-
-  <!-- Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#dashboardCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#dashboardCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
-
-</div>
 
 
 
 
-<div class="col-md-6">
-  <div class="card h-100" id="checked_in">
-    <div class="card-header">
+
+
+     <div class="card float-start" id = "checked_in">
+      <div class="card-header ">
         Currently Checked-in Visitors
       </div>
       <div class="card-body p-0">
@@ -118,7 +124,57 @@
         {% endif %}
       </div>
     </div>
+
+
+<!-- ✅ Recent Appointments -->
+<div class="card mt-4 mx-3 float-end" id="recent_appointments">
+  <div class="card-header">Recent Appointments</div>
+  <div class="card-body p-0">
+    {% if recent_appointments %}
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Appointment ID</th>
+              <th>Patient Name</th>
+              <th>Doctor</th>
+              <th>Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for appt in recent_appointments %}
+            <tr>
+              <td>{{ appt.id }}</td>
+              <td>{{ appt.patient_name }}</td>
+              <td>{{ appt.doctor }}</td>
+              <td>{{ appt.appointment_time }}</td>
+              <td>
+                {% if appt.status == "Scheduled" %}
+                  <span class="badge bg-primary">Scheduled</span>
+                {% elif appt.status == "Completed" %}
+                  <span class="badge bg-success">Completed</span>
+                {% elif appt.status == "Cancelled" %}
+                  <span class="badge bg-danger">Cancelled</span>
+                {% else %}
+                  <span class="badge bg-secondary">{{ appt.status }}</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="m-3 text-muted">No recent appointments found.</p>
+    {% endif %}
   </div>
+</div>
+
+
+
+
+
   <!-- ✅ Visit History -->
     <div class="card float-end" id="visit_history">
       <div class="card-header">Visit History (Analytics)</div>
@@ -164,10 +220,18 @@
       </div>
     </div>
 
-  </div>
+  
 
-</body>
 
-</html>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS (required for carousel to work) -->
+
+
+
+
+
 </body>
 </html>

@@ -2,6 +2,7 @@
 from flask import Flask,render_template ,jsonify,request
 from models.checkin import checkin_bp
 from models.checkout import checkout_bp
+from models.dashboard import dashboard_bp 
 from models.monitor import monitor_bp
 from models.database import engine 
 
@@ -11,7 +12,7 @@ app.secret_key = "super-secret-key-change-me"
 
 clinic_name= "ms"
 
-@app.route("/dashboard")
+@app.route("/")
 
 def hello():
     return render_template ("index.html")
@@ -23,6 +24,7 @@ def bookapp():
 app.register_blueprint(checkin_bp)
 app.register_blueprint(checkout_bp) 
 app.register_blueprint(monitor_bp)
+app.register_blueprint(dashboard_bp)
 
 # @app.route("/book%20appointment")
 # def home():
