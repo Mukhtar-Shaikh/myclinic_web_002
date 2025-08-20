@@ -63,6 +63,7 @@
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Purpose</th>
+                <th>Doctor</th>
                 <th>Time In</th>
                 <th>Action</th>
               </tr>
@@ -74,6 +75,7 @@
                 <td>{{ v.full_name }}</td>
                 <td>{{ v.phone }}</td>
                 <td>{{ v.purpose }}</td>
+                <td>{{ v.doctor }}</td>
                 <td>{{ v.time_in }}</td>
                 <td>
                   <form method="post" action="{{ url_for('checkout.checkout') }}" style="display:inline;">

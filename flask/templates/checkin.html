@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Visitor Monitor</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-light">
-     {% include 'header.html' %}
+  {% include 'header.html' %}
 
 
   <div class="container py-4 mt-3">
@@ -15,14 +17,14 @@
 
     <!-- flash messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, msg in messages %}
-          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-            {{ msg }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          </div>
-        {% endfor %}
-      {% endif %}
+    {% if messages %}
+    {% for category, msg in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+      {{ msg }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
     {% endwith %}
 
     <!-- ✅ Check-in Form -->
@@ -46,12 +48,26 @@
               <input type="text" class="form-control" name="purpose" placeholder="Purpose" required>
             </div>
           </div>
+          <div class="row mb-2">
+            <p>Meets to Doctor -</p>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="doctor" id="doctor 1" value="Dr. Smith" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="doctor 1"> Dr.Muqtadir Khan </label>
+
+              <input type="radio" class="btn-check" name="doctor" id="doctor 2"  value="Dr. Smith" autocomplete="off">
+              <label class="btn btn-outline-primary" for="doctor 2">Dr. Mukhtar Shaikh</label>
+
+              <input type="radio" class="btn-check" name="doctor" id="doctor 3"  value="Dr. Smith" autocomplete="off">
+              <label class="btn btn-outline-primary" for="doctor 3">Dr. Faizan Syed </label>
+            </div>
+          </div>
           <button class="btn btn-success">Check In</button>
         </form>
       </div>
     </div>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

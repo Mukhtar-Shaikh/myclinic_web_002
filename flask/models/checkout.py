@@ -37,7 +37,7 @@ def checkout():
     with engine.connect() as conn:
         checked_in = conn.execute(
             text("""
-                SELECT v.id AS visitor_id, v.full_name, v.phone, vs.purpose, vs.time_in
+                SELECT v.id AS visitor_id, v.full_name, v.phone, vs.purpose,vs.doctor , vs.time_in
                 FROM visits vs
                 JOIN visitor v ON vs.visitor_id = v.id
                 WHERE vs.status='IN'

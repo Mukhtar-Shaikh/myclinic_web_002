@@ -31,6 +31,7 @@
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Purpose</th>
+                <th>Doctor</th>
                 <th>Time In</th>
                 <th>Action</th>
               </tr>
@@ -42,6 +43,7 @@
                 <td>{{ v.full_name }}</td>
                 <td>{{ v.phone }}</td>
                 <td>{{ v.purpose }}</td>
+                <td>{{ v.doctor }}</td>
                 <td>{{ v.time_in }}</td>
                 <td>
                   <form method="post" action="{{ url_for('checkout.checkout') }}" style="display:inline;">
@@ -74,6 +76,7 @@
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Purpose</th>
+                <th>Doctor</th>
                 <th>Time In</th>
                 <th>Time Out</th>
                 <th>Status</th>
@@ -85,6 +88,7 @@
                 <td>{{ h.full_name }}</td>
                 <td>{{ h.phone }}</td>
                 <td>{{ h.purpose }}</td>
+                <td>{{ h.doctor }}</td>
                 <td>{{ h.time_in }}</td>
                 <td>{{ h.time_out or "-" }}</td>
                 <td>

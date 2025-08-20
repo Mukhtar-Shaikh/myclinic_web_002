@@ -12,6 +12,7 @@ def checkin():
         phone = request.form.get("phone")
         email = request.form.get("email")
         purpose = request.form.get("purpose")
+        doctor = request.form.get("doctor")
 
         try:
             with engine.begin() as conn:
@@ -25,15 +26,15 @@ def checkin():
                     visitor_id = visitor.id
                 else:
                     result = conn.execute(
-                        text("INSERT INTO visitor (full_name, phone, email) VALUES (:n,:p,:e)"),
-                        {"n": full_name, "p": phone, "e": email}
+                        text("INSERT INTO visitor (full_name, phone, email  ) VALUES (:n,:p,:e)"),
+                        {"n": full_name, "p": phone, "e": email }
                     )
                     visitor_id = result.lastrowid
 
                 # 2. insert visit with status = IN
                 conn.execute(
-                    text("INSERT INTO visits (visitor_id, purpose, time_in, status) VALUES (:vid,:pur,:ti,'IN')"),
-                    {"vid": visitor_id, "pur": purpose, "ti": datetime.now()}
+                    text("INSERT INTO visits (visitor_id, purpose,  doctor ,time_in, status) VALUES (:vid,:pur,:d,:ti,'IN')"),
+                    {"vid": visitor_id, "pur": purpose,"d": doctor , "ti": datetime.now()}
                 )
 
             flash("✅ Visitor checked in successfully!", "success")

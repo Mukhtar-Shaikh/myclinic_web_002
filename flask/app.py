@@ -20,9 +20,9 @@ app.register_blueprint(checkin_bp)
 app.register_blueprint(checkout_bp) 
 app.register_blueprint(monitor_bp)
 
-@app.route("/book%20appointment")
-def home():
-   return render_template ("bookapp.html")
+# @app.route("/book%20appointment")
+# def home():
+#    return render_template ("bookapp.html")
 
 if __name__ == '__main__':
     app.run(host= '0.0.0.0' ,debug=True)
