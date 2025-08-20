@@ -34,7 +34,7 @@
         <form method="POST" action="{{ url_for('checkin.checkin') }}">
           <div class="row mb-2">
             <div class="col">
-              <input type="text" class="form-control" name="full_name" placeholder="Full Name" required>
+              <input type="text" class="form-control" name="full_name" placeholder="Full Name"  pattern="[A-Za-z ]+" required>
             </div>
             <div class="col">
               <input type="text" class="form-control" name="phone" placeholder="Phone" required>
@@ -42,7 +42,7 @@
           </div>
           <div class="row mb-2">
             <div class="col">
-              <input type="email" class="form-control" name="email" placeholder="Email">
+              <input type="email" class="form-control" name="email" placeholder="Email"   pattern="[^@]+@[^@]+\.[^@]+" required>
             </div>
             <div class="col">
               <input type="text" class="form-control" name="purpose" placeholder="Purpose" required>

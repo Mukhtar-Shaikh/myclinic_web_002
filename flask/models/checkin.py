@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for
 from models.database import engine
 from sqlalchemy import text
 from datetime import datetime
+import re
 
 checkin_bp = Blueprint("checkin", __name__)
 
@@ -14,7 +15,20 @@ def checkin():
         purpose = request.form.get("purpose")
         doctor = request.form.get("doctor")
 
+        if not re.fullmatch(r"\d{10}",phone):
+            flash("❌ Invalide Phone Number (must be 10 digits)"," Danger")
+            return redirect(url_for("checkin.checkin"))
         
+        if email and not re.fullmatch(r"[^@]+@[^@]+\.[^@]+",email):
+            flash("❌ Invalide Email Number format" ,"danger")
+            return redirect(url_for("checkin.checkin"))
+        
+        if  not re.fullmatch(r"[A-Za-z ]+",full_name):
+            flash("❌Name  only contain Letter and Space .","danger")
+            return redirect(url_for("checkin.checkin"))
+        
+
+
 
         try:
             with engine.begin() as conn:
