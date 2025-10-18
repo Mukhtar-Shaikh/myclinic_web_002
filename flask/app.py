@@ -16,6 +16,7 @@ clinic_name= "ms"
 
 def hello():
     return render_template ("index.html")
+
 @app.route("/bookAppointment")
 
 def bookapp():
