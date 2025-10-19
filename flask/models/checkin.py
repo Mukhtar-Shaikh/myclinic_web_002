@@ -16,11 +16,11 @@ def checkin():
         doctor = request.form.get("doctor")
 
         if not re.fullmatch(r"\d{10}",phone):
-            flash("❌ Invalide Phone Number (must be 10 digits)"," Danger")
+            flash("❌ Invalid Phone Number (must be 10 digits)"," Danger")
             return redirect(url_for("checkin.checkin"))
         
         if email and not re.fullmatch(r"[^@]+@[^@]+\.[^@]+",email):
-            flash("❌ Invalide Email Number format" ,"danger")
+            flash("❌ Invalid Email Number format" ,"danger")
             return redirect(url_for("checkin.checkin"))
         
         if  not re.fullmatch(r"[A-Za-z ]+",full_name):

@@ -21,4 +21,19 @@ def appointment():
         address = request.form.get(address)
         email = request.form.get(email)
 
+        if email and not re.fullmatch(r"[^@]+@[^@]+\.[^@]+",email) :
+            flash("❌ invalid Email id ,please re-enter email id")
+            return(url_for("appointment.bookapp"))
+        
+        if  not re.fullmatch(r"\d{10}",phone_number) :
+            flash("❌ invalid phone number  ,please re-enter phone number ")
+            return(url_for("appointment.bookapp"))
+        
+        if  not re.fullmatch(r"[A-Za-z ]+",full_name) :
+            flash("❌ invalid phone number  ,please re-enter phone number ")
+            return(url_for("appointment.bookapp"))
+        
+        
+                                      
+
       

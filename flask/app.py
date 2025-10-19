@@ -4,6 +4,7 @@ from models.checkin import checkin_bp
 from models.checkout import checkout_bp
 from models.dashboard import dashboard_bp 
 from models.monitor import monitor_bp
+from models.appointment import appointment_bp
 from models.database import engine 
 
 
