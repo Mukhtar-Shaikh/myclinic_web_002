@@ -33,7 +33,7 @@ def appointment():
             flash("❌ invalid phone number  ,please re-enter phone number ")
             return(url_for("appointment.bookapp"))
         
-        
-                                      
+                
+    return render_template ("bookapp.html")
 
       

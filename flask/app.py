@@ -15,7 +15,7 @@ clinic_name= "ms"
 
 @app.route("/")
 
-def hello():
+def home():
     return render_template ("index.html")
 
 @app.route("/bookAppointment")
@@ -31,6 +31,7 @@ app.register_blueprint(checkin_bp)
 app.register_blueprint(checkout_bp) 
 app.register_blueprint(monitor_bp)
 app.register_blueprint(dashboard_bp)
+app.register_blueprint(appointment_bp)
 
 # @app.route("/book%20appointment")
 # def home():
