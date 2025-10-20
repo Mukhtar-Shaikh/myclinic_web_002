@@ -16,20 +16,22 @@
   }
 
 
-  #checked_in{ height: 300px; width: 46%; margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;
+  #checked_in{ height: 300px; width: 50%; margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;
   
 
   }
   #recent_appointments{
-    height: 300px; width: 46%;margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;
+    height: 300px; width: 40%;margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;
 
   }
-  
+
   #visit_history {
+     height: auto;
   clear: both;            /* ensures it goes below floated cards */
-  float: left;
-  width: 46%;
-  margin: 20px;
+  float: none;
+  width: auto;
+  margin: 40px auto;
+  /* margin-left: 100px */
 }
 
 
@@ -185,7 +187,7 @@
 
 
   <!-- ✅ Visit History -->
-    <div class="card float-end" id="visit_history">
+    <div class="card " id="visit_history">
       <div class="card-header">Visit History (Analytics)</div>
       <div class="card-body p-0">
         {% if history %}
